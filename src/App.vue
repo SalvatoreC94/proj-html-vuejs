@@ -11,7 +11,7 @@ import AppFooter from './components/AppFooter.vue';
 export default{
 data(){
   return{
-    message: 'Ciao'
+   
   }
 },
 
@@ -21,9 +21,7 @@ components:{
   AppFooter,
 },
 methods:{
-  clicked(){
-    alert('Ciao da click')
-  }
+  
 }
 }
 </script>
@@ -36,6 +34,6 @@ methods:{
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 
 </style>

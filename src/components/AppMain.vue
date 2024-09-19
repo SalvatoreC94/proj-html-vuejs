@@ -2,7 +2,7 @@
 export default{
 data(){
   return{
-    text: 'lorem ipsum dolor'
+   
   }
 }
 }
@@ -10,13 +10,11 @@ data(){
 
 <template>
 <main>
-    <p>
-{{ text }}
-    </p>
+    
 </main>
 
 </template>
 
-<style scoped>
+<style lang="scss">
 
 </style>
