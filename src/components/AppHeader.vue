@@ -1,25 +1,40 @@
+<script>
+export default {
+  name: 'AppHeader',
+  data() {
+    return {
+      // Link di navigazione dinamici
+      navLinks: [
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about' },
+        { name: 'Services', url: '/services' },
+        { name: 'Portfolio', url: '/portfolio' },
+        { name: 'Blog', url: '/blog' },
+        { name: 'Contact', url: '/contact' }
+      ],
+      // Link social dinamici
+      socialLinks: [
+        { icon: 'fab fa-facebook-f', url: 'https://facebook.com' },
+        { icon: 'fab fa-instagram', url: 'https://instagram.com' },
+        { icon: 'fab fa-pinterest-p', url: 'https://pinterest.com' }
+      ]
+    };
+  }
+};
+</script>
+
 <template>
   <header>
     <!-- Header Superiore -->
-    <div class="header-superiore ">
-      <div>
+    <div class="header-superiore">
+      <div class="contact-info">
         (001) 88451234 88455438
       </div>
-      <nav>
-        <ul class="">
-          <li class="me-3">
-            <a href="https://facebook.com" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="me-3">
-            <a href="https://instagram.com" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://pinterest.com" target="_blank">
-              <i class="fab fa-pinterest-p"></i>
+      <nav class="social-links">
+        <ul>
+          <li class="me-3" v-for="(link, index) in socialLinks" :key="index">
+            <a :href="link.url" target="_blank">
+              <i :class="link.icon"></i>
             </a>
           </li>
         </ul>
@@ -28,67 +43,69 @@
 
     <!-- Header Inferiore -->
     <div class="header-inferiore">
+      <!-- Logo -->
       <div class="logo">
-        <img src="/img/images/cropped-Group-39-2x.png" alt="Logo 1" />
+        <img src="/img/images/cropped-Group-39-2x.png" alt="Logo" />
       </div>
+
+      <!-- Menu di Navigazione -->
       <nav class="navbar">
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Showcase</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+          <li class="nav-item" v-for="(item, index) in navLinks" :key="index">
+            <a class="nav-link" :href="item.url">{{ item.name }}</a>
           </li>
         </ul>
       </nav>
+
+      <!-- Pulsante "Purchase" -->
       <div class="purchase">
-        <input type="button">Purchase
+        <button>Purchase</button>
       </div>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  name: 'AppHeader',
-};
-</script>
 
 <style scoped>
-.purchase {
-  width: 120px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: lightgreen;
-  text-align: center;
-  line-height: 50px;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* Stili Generali */
+header {
+  font-family: Arial, sans-serif;
 }
 
+/* Header Superiore */
 .header-superiore {
-  padding: 10px;
-  background-color: grey;
+  background-color: #333;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
+.contact-info {
+  color: #fff;
+}
+
+.social-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.social-links li a:hover {
+  color: lightgreen;
+}
+
+/* Header Inferiore */
 .header-inferiore {
-  padding: 20px;
-  background-color: #e9ecef;
+  background-color: #f8f9fa;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,17 +119,33 @@ export default {
   display: flex;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .nav-item .nav-link {
   margin: 0 15px;
   text-decoration: none;
-  color: #000;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.header-superiore nav ul li i {
-  font-size: 20px;
-  color: white;
-  
+.nav-item .nav-link:hover {
+  color: #007bff;
+}
+
+/* Pulsante Purchase */
+.purchase button {
+  background-color: lightgreen;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.purchase button:hover {
+  background-color: #28a745;
 }
 </style>
