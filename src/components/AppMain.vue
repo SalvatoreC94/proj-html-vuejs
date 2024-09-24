@@ -1,7 +1,58 @@
+<script>
+export default {
+  name: 'HomePage',
+  data() {
+    return {
+      services: [
+        { title: 'Speed Optimization', description: 'Optimize your website speed to improve user experience.' },
+        { title: 'Cloud Solutions', description: 'Secure and scalable cloud solutions to grow your business.' },
+        { title: 'Website Design', description: 'Beautiful and responsive designs for your online presence.' },
+        { title: 'Online Marketing', description: 'Strategic marketing campaigns to boost your brand visibility.' }
+      ],
+      projects: [
+        { src: '/public/img/images/ina-soulis-227104-unsplash-1024x1024.jpg', alt: 'Project 1' },
+        { src: '/public/img/images/sunisa-misa-531163-unsplash-1024x1024.jpg', alt: 'Project 2' },
+        { src: '/public/img/images/355H-1024x1024.jpg', alt: 'Project 3' },
+        { src: '/public/img/images/photo-1448932252197-d19750584e56-1024x1024.jpg', alt: 'Project 4' },
+        { src: '/public/img/images/business-competition-PB366D8-1024x1024.jpg', alt: 'Project 5' },
+        { src: '/public/img/images/cozy-sofa-in-living-room-PQR5AB9-1024x1024.jpg', alt: 'Project 6' },
+        { src: '/public/img/images/aa9a4539-PQGJ7HU-1024x1024.jpg', alt: 'Project 7' },
+        { src: '/public/img/images/cody-davis-253928-unsplash-1024x1024.jpg', alt: 'Project 8' }
+      ],
+      blogPosts: [
+        { 
+          title: 'Marketing Ideas', 
+          image: '/public/img/images/serious-businesswoman-with-documents-talking-on-P9Q6LX6-1024.jpg', 
+          date: 'May 24, 2018 - Alex', 
+          excerpt: 'Explore new marketing strategies to increase your sales.' 
+        },
+        { 
+          title: 'Rest During Working Hours', 
+          image: '/public/img/images/Businessman-at-the-desk-in-his-office-resting--1024x768.jpg', 
+          date: 'May 24, 2018 - Alex', 
+          excerpt: 'Understanding the balance between work and rest.' 
+        },
+        { 
+          title: 'Develop Your Startup Idea', 
+          image: '/public/img/images/simple-home-office-with-tree-PBXRXYB-large-1024x768.jpg', 
+          date: 'May 24, 2018 - Alex', 
+          excerpt: 'From idea to execution: steps to start your business.' 
+        }
+      ],
+      pricing:[
+        { title: 'Designing', cost: '$10 / Design', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] },
+        { title: 'Development', cost: '$15 / Design', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] },
+        { title: 'SEO', cost: '$10 / Product', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] }
+      ]
+    };
+  }
+};
+</script>
+
 <template>
   <main>
     <!-- Header Section -->
-    <header class="header-section container-fluid p-0">
+    <header class="header-section container-fluid">
   <div class="row">
     <div class="col-lg-6 d-flex flex-column justify-content-center align-items-start p-5">
       <p class="experience-text">17 YEARS OF EXPERIENCE</p>
@@ -25,70 +76,98 @@
 
 
     <!-- Services Section -->
-    <section class="services-section text-center my-5">
-  <div class="container">
-    <h2>We Are Here To Make Your <span class="highlight">Website</span> Look More <span class="highlight">Elegant</span> And Stylish!</h2>
-    <div class="row mt-4">
-      <div class="col-md-6 col-lg-3 mb-4" v-for="service in services" :key="service.title">
-        <div class="card service-card">
-          <div class="card-body">
-            <div class="service-icon"><!-- Placeholder for icon if needed --></div>
+    <section class="services-section text-center m my-5">
+  <div class="container d-flex align-items-center">
+    <!-- Testo a sinistra -->
+    <div class="text-container  col-md-6">
+      <h1>We Are Here To Make Your <span class="highlight">Website</span> Look More <span class="highlight">Elegant</span> And Stylish!</h1>
+      <button class="btn btn-success view-all-btn mt-4">View All</button>
+    </div>
+
+    <!-- Carte a destra -->
+    <div class="cards-container row col-md-6">
+      <div class="col-md-6 col-lg-6 mb-4" v-for="service in services" :key="service.title">
+        <div class="card service-card h-100">
+          <div class="card-body d-flex flex-column">
+            <div class="service-icon mb-3"><!-- Placeholder per l'icona --></div>
             <h5 class="card-title">{{ service.title }}</h5>
             <p class="card-text">{{ service.description }}</p>
           </div>
         </div>
       </div>
     </div>
-    <button class="btn btn-success view-all-btn">View All</button>
   </div>
 </section>
 
 
+
+
     <!-- Mission Section -->
     <section class="mission-section container my-5">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="/public/img/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg" alt="Mission Image" class="img-fluid" />
-        </div>
-        <div class="col-md-6">
-          <h2>Learn more about our <span class="highlight">missions</span></h2>
-          <p>Far Far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
-          <button class="btn btn-success">Learn More</button>
-        </div>
-      </div>
-    </section>
+  <div class="row">
+    <div class="col-md-6">    
+      <img src="/public/img/images/businesswoman-analysing-document-P8WSNMC-1024x820.jpg" alt="Mission Image" class="img-fluid main-image" />
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center p-5">
+      <h2>Learn more about our <span class="highlight">missions</span></h2>
+      <p>Far Far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Separated they live in Bookmarksgrove.</p>
+      <button class="btn btn-success">Read More</button>
+    </div>
+  </div>
+</section>
+
+
 
     <!-- Recent Projects Section -->
     <section class="recent-projects py-5">
-      <div class="container">
-        <h2 class="text-center">Our Recent <span class="highlight">Web Designs</span> & Some Examples of Past <span class="highlight">Projects</span></h2>
-        <div class="projects-grid">
-          <div class="project-card" v-for="project in projects" :key="project.alt">
-            <img :src="project.src" :alt="project.alt" class="img-fluid" />
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h2>Our recent <span class="highlight">web designs</span> & some examples of past <span class="highlight">projects</span></h2>
       </div>
-    </section>
+     
+      <div class="col-lg-6">
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. Separated they live in Bookmarksgrove.</p>
+      </div>
+    </div>
+
+    <div class="row mt-4 projects-grid">
+      <div class="col-md-3 project-card" v-for="project in projects" :key="project.alt">
+        <img :src="project.src" :alt="project.alt" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Stats Section -->
-    <section class="stats-section py-5 bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4 text-center">
-            <h2>280</h2>
-            <p>PROJECTS</p>
-          </div>
-          <div class="col-md-4 text-center">
-            <h2>+3,500</h2>
-            <p>USERS' COMMENTS</p>
-          </div>
-          <div class="col-md-4 text-center">
-            <h2>100%</h2>
-            <p>HAPPY CLIENTS</p>
-          </div>
-        </div>
+    <section class="stats-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+    
+      <div class="col-lg-6 stats-bg p-5 text-white">
+        <h2 class="display-4">280</h2>
+        <p>PROJECTS</p>
+        <h2 class="display-4">+3,500</h2>
+        <p>USERS' COMMENTS</p>
+        <h2 class="display-4">100%</h2>
+        <p>HAPPY CLIENTS</p>
       </div>
-    </section>
+
+     
+      <div class="col-lg-6 p-5">
+        <h2>We <span class="highlight">Love</span> What We Do</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...</p>
+        <ul>
+          <li><i class="check-icon"></i> Far far away, behind the word mountains</li>
+          <li><i class="check-icon"></i> Large language ocean</li>
+          <li><i class="check-icon"></i> Far from the countries Vokalia and Consonantia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Pricing Section -->
     <section class="pricing-section py-5">
@@ -176,59 +255,11 @@
     </div>
   </div>
 </section>
+
   </main>
 </template>
 
-<script>
-export default {
-  name: 'HomePage',
-  data() {
-    return {
-      services: [
-        { title: 'Speed Optimization', description: 'Optimize your website speed to improve user experience.' },
-        { title: 'Cloud Solutions', description: 'Secure and scalable cloud solutions to grow your business.' },
-        { title: 'Website Design', description: 'Beautiful and responsive designs for your online presence.' },
-        { title: 'Online Marketing', description: 'Strategic marketing campaigns to boost your brand visibility.' }
-      ],
-      projects: [
-        { src: '/public/img/images/ina-soulis-227104-unsplash-1024x1024.jpg', alt: 'Project 1' },
-        { src: '/public/img/images/sunisa-misa-531163-unsplash-1024x1024.jpg', alt: 'Project 2' },
-        { src: '/public/img/images/355H-1024x1024.jpg', alt: 'Project 3' },
-        { src: '/public/img/images/photo-1448932252197-d19750584e56-1024x1024.jpg', alt: 'Project 4' },
-        { src: '/public/img/images/business-competition-PB366D8-1024x1024.jpg', alt: 'Project 5' },
-        { src: '/public/img/images/cozy-sofa-in-living-room-PQR5AB9-1024x1024.jpg', alt: 'Project 6' },
-        { src: '/public/img/images/aa9a4539-PQGJ7HU-1024x1024.jpg', alt: 'Project 7' },
-        { src: '/public/img/images/cody-davis-253928-unsplash-1024x1024.jpg', alt: 'Project 8' }
-      ],
-      blogPosts: [
-        { 
-          title: 'Marketing Ideas', 
-          image: '/public/img/images/serious-businesswoman-with-documents-talking-on-P9Q6LX6-1024.jpg', 
-          date: 'May 24, 2018 - Alex', 
-          excerpt: 'Explore new marketing strategies to increase your sales.' 
-        },
-        { 
-          title: 'Rest During Working Hours', 
-          image: '/public/img/images/Businessman-at-the-desk-in-his-office-resting--1024x768.jpg', 
-          date: 'May 24, 2018 - Alex', 
-          excerpt: 'Understanding the balance between work and rest.' 
-        },
-        { 
-          title: 'Develop Your Startup Idea', 
-          image: '/public/img/images/simple-home-office-with-tree-PBXRXYB-large-1024x768.jpg', 
-          date: 'May 24, 2018 - Alex', 
-          excerpt: 'From idea to execution: steps to start your business.' 
-        }
-      ],
-      pricing:[
-        { title: 'Designing', cost: '$10 / Design', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] },
-        { title: 'Development', cost: '$15 / Design', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] },
-        { title: 'SEO', cost: '$10 / Product', features: ['Creative design enabled', 'Vibrant color usage', 'Eye-catching design', 'Extreme typography', 'Exceptional design'] }
-      ]
-    };
-  }
-};
-</script>
+
 
 <style scoped>
 .header-section {
@@ -284,105 +315,138 @@ p {
 .social-icons a:hover {
   color: #1fcf95;
 }
+.services-section .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.services-section {
-  padding: 60px 0;
+.text-container {
   text-align: left;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 100%; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Aggiungi transizioni */
+}
+
+/* Hover effetto */
+.card:hover {
+  transform: translateY(-5px); 
+  background-color: #1fcf95;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.view-all-btn {
+  margin-top: 20px;
+}
+
+.main-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .highlight {
   color: #1fcf95;
-  font-weight: 700;
+  font-weight: bold;
 }
 
-.card-container {
-  display: flex;
-  justify-content: space-between;
+button.btn-success {
+  background-color: #1fcf95;
+  border: none;
+  width: 120px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(31, 207, 149, 0.3);
 }
 
-.service-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-  height: 100%;
+button.btn-success:hover {
+  background-color: #17a589;
+  box-shadow: 0 6px 20px rgba(31, 207, 149, 0.5);
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
+.recent-projects h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
-.card-body {
-  padding: 30px 20px;
-  text-align: center;
+.recent-projects .highlight {
+  color: #1fcf95;
 }
 
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 15px;
-}
-
-.card-text {
+.recent-projects p {
   font-size: 1rem;
   color: #6c757d;
-  margin-top: 10px;
 }
 
-.service-icon {
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border: 2px solid #1fcf95;
-  border-radius: 8px;
-  margin: 0 auto 20px;
-}
-
-.view-all-btn {
-  background: linear-gradient(90deg, rgba(43, 194, 152, 1) 0%, rgba(72, 225, 173, 1) 100%);
-  border: none;
-  border-radius: 50px;
-  padding: 10px 30px;
-  font-size: 1rem;
-  color: #fff;
-  transition: background 0.3s ease-in-out;
-  box-shadow: 0 5px 15px rgba(31, 207, 149, 0.3);
-}
-
-.view-all-btn:hover {
-  background: rgba(31, 207, 149, 1);
-  box-shadow: 0 8px 25px rgba(31, 207, 149, 0.5);
-}
-
-
-.mission-section img {
-  max-width: 100%;
-  height: auto;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.projects-grid img {
+.project-card img {
   width: 100%;
   height: auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
 }
 
 .stats-section {
-  background-color: #e9ecef;
-  padding: 50px 0;
+  position: relative;
+  background-color: #f8f9fa;
 }
+
+.stats-bg {
+  background-color: #1fcf95;
+  border-radius: 15px;
+  color: #fff;
+  padding: 40px;
+}
+
+h2 .highlight {
+  color: #1fcf95;
+}
+
+.check-icon {
+  color: #1fcf95;
+  margin-right: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+ul li::before {
+  content: '\2713';
+  color: #1fcf95;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
 
 .pricing-section .pricing-card {
   display: inline-block;
@@ -465,7 +529,7 @@ h2 {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   z-index: 3;
-  margin-top: -30px; /* Overlap with image */
+  margin-top: -30px; 
 }
 
 .blog-card:hover {
@@ -551,15 +615,6 @@ h2 {
   align-items: center;
 }
 
-.input-group .form-control {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  padding: 15px;
-  max-width: 300px;
-}
-
 .input-group .btn {
   border-radius: 50px;
   padding: 15px 30px;
@@ -570,4 +625,5 @@ h2 {
   background-color: #222;
   color: #fff;
 }
+
 </style>

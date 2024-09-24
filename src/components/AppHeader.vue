@@ -21,7 +21,7 @@ export default {
     };
   }
 };
-</script> 
+</script>
 
 <template>
   <header>
@@ -65,11 +65,15 @@ export default {
   </header>
 </template>
 
-
 <style scoped>
 /* Stili Generali */
 header {
   font-family: Arial, sans-serif;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; 
+  background-color: white; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Superiore */
@@ -134,7 +138,7 @@ header {
   color: #007bff;
 }
 
-/* Pulsante Purchase */
+
 .purchase button {
   background-color: lightgreen;
   border: none;
